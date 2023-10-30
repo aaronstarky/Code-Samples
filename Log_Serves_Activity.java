@@ -27,6 +27,11 @@ import com.example.tennistrackermanual.Model.Serve;
 import com.example.tennistrackermanual.Model.ServeLog;
 import com.example.tennistrackermanual.R;
 
+
+/*
+This class defines the activity in which the user can track their serves during a practice session.
+It uploads the final data directly into the SQLite database that is integrated into the android application framework.
+*/
 public class LogServesActivity extends AppCompatActivity {
 
     private SQLiteDatabase db;
@@ -124,6 +129,10 @@ public class LogServesActivity extends AppCompatActivity {
         inButton.setEnabled(false);
         outButton.setEnabled(false);
 
+        /*
+        This Section defines the behavior that the program is to undergo if the in button is clicked during a serve log session.
+        The indices in the control conditions correspond to the four different types of serves tracked by the application.
+        */
         inButton.setOnClickListener(v -> {
             int serveTypeIndex = (int) serveTypeSpinner.getSelectedItemId();
             RadioButton clickedButton = findViewById(courtSide.getCheckedRadioButtonId());
@@ -241,6 +250,10 @@ public class LogServesActivity extends AppCompatActivity {
         return true;
     }
 
+    /*
+    This sets the options in the menu to their actions. 
+    The save and exit buttons prompt the user to save their data. If they choose to do so, then the data is saved to the database.
+    */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -285,7 +298,9 @@ public class LogServesActivity extends AppCompatActivity {
         }
     }
 
-
+    /*
+    The following functions are helper functions for the generation of text, calculating percentages, and formatting the data for the user to view.
+    */
     private String generateNewTotalText() {
         String servePercentage = String.valueOf(getServePercentage());
         if (servePercentage.length() > 5) {
