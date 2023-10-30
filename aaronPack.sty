@@ -1,0 +1,34 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{aaronPack}[3/3/2023 Implements commonly used commands in MATH 290]
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsfonts}
+
+
+\newcommand{\qed}{\hspace{\fill} $\square$\\}
+\newcommand{\inints}{\in \mathbb{Z}}
+\newcommand{\inreals}{\in \mathbb{R}}
+\newcommand{\innats}{\in \mathbb{N}}
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\inrxr}{\in \mathbb{R} \times \mathbb{R}}
+\newcommand{\proof}{\emph{Proof: }}
+\newcommand{\refproof}{\emph{Proof of Reflexivity: }}
+\newcommand{\symproof}{\emph{Proof of Symmetry: }}
+\newcommand{\tranproof}{\emph{Proof of Transitivity: }}
+\newcommand{\asymproof}{\emph{Proof of Antisymmetry: }}
+\newcommand{\dproof}{\emph{Disproof: }}
+\newcommand{\refdproof}{\emph{Disproof of Reflexivity: }}
+\newcommand{\symdproof}{\emph{Disproof of Symmetry: }}
+\newcommand{\trandproof}{\emph{Disproof of Transitivity: }}
+\newcommand{\asymdproof}{\emph{Disproof of Antisymmetry: }}
+\newcommand{\id}{$ id$}
+\newcommand{\im}[1]{$ im$({#1})}
+\newcommand{\justif}[2]{&{#1}&\text{#2}}
+\newcommand{\divides}{\bigm|}
+\newcommand{\ndivides}{%
+  \mathrel{\mkern.5mu % small adjustment
+    % superimpose \nmid to \big|
+    \ooalign{\hidewidth$\big|$\hidewidth\cr$\nmid$\cr}%
+  }%
+}
