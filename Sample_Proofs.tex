@@ -1,0 +1,184 @@
+\documentclass{article}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{aaronPack}
+
+\title{Section 27 Practice Problems}
+\author{Aaron Starkweather}
+\date{March 2023}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\section*{27.1}
+\proof Let $A, B$ be sets and let $f: A \rightarrow B$ be a function. We will prove the first implication.\\
+\indent Assume that $B$ is finite. We want to show that $|\im{f}| \leq |B|$. Because $f$ is a function, we know that for every $a \in A, f(a) = b$ with $b$ being some arbitrary element of $B$. By definition we have that $\im{f} = \{f(a) : a \in A\}$. So each element $c \in \im{f}$ is also in $B$. Thus we have that $|\im{f}|$ is less than $B$. In the case that $f$ is a surjective function, meaning that for each $b \in B, \exists a \in A$ such that $f(a) = b$, then we will have $|\im{f}| = |B|$.\\
+By this, we have that $|\im{f}| \leq |B|$.\\
+\indent Now we will prove the second part. We hold our assumption that $B$ is finite.\\
+($\Rightarrow$) Assume that $f$ is surjective, meaning that for each $b \in B, \exists a \in A$ such that $f(a) = b$. Then we have that $\im{f}$ contains all elements in the codomain. Thus $|\im{f}| = |B|$.\\
+($\Leftarrow$) Assume that $|\im{f}| = |B|$. This means that for any element $b \in B$, $b$ is also an element of $\im{f}$. If $b \in \im{f}$, then $b \in B$. Thus they have the same elements and the same number of elements. Now, if $\im{f}$ is equal to the codomain, that means there is no $b \in B$ that cannot be reached by an input $a \in A$. Thus $f$ is surjective. \qed
+
+\section*{27.2}
+\textbf{Prove that the functions $f_1$ and $f_2$ defined in Example 27.12 are both bijections.}\\
+
+\emph{Shared assumptions and definitions:} Let $P_1$ be the set of even natural numbers and $P_2$ be the set of odd natural numbers. Let $Q_1$ be the set of positive integers and let $Q_2$ be the set of nonpositive integers. Define the following:
+\begin{align*}
+    &f_1: P_1 \rightarrow Q_1 : f_1(n) = n/2\\
+    &f_2: P_2 \rightarrow Q_2 : f_2(n) = -(n - 1)/2
+\end{align*}
+We will first prove that $f_1$ is a bijection.\\
+\proof Let $p_1, p_2 \in P_1$. Assume that $f_1(p_1) = f_1(p_2)$. We find
+\begin{align*}
+    p_1/2 &= p_2/2\\
+    p_1 &= p_2\\
+\end{align*}
+Thus we have that $f_1$ is injective.\\
+\indent Now let $b = f_1(p_n)$ for some $p_n \in P_1$. Then we have
+\[
+p_n = 2b
+\]
+Plugging this value of $p_n$ back into the original equation we have
+\begin{align*}
+    f(p_n) &= p_n/2\\
+    &= 2b/2\\
+    &= b\\
+\end{align*}
+Thus we have that $f_1$ is surjective. Now because $f_1$ is both injective and surjective, we have that $f_1$ is a bijection. \qed
+
+Next we will prove $f_2$ is a bijection.\\
+\proof Let $p_1, p_2 \in P_2$. Assume that $f_2(p_1) = f_2(p_2)$. We find
+\begin{align*}
+    -(p_1 - 1)/2 &= -(p_2 - 1)/2\\
+    -(p_1 - 1) &= -(p_2 - 1)\\
+    p_1 - 1 &= p_2 - 1\\
+    p_1 &= p_2\\
+\end{align*}
+Thus we have that $f_2$ is an injection.\\
+\indent Now let $b = f_2(p_n)$ for some $p_n \in P_2$. Then we have
+\[
+p_n = 1 - 2b
+\]
+Plugging this value of $p_n$ back into the original equation we have
+\begin{align*}
+    f_2(p_n) &= -(p_n - 1)/2\\
+    &= -((1 - 2b) - 1)/2\\
+    &= -(-2b)/2
+    &= 2b/2
+    &= b
+\end{align*}
+Thus we have that $f_2$ is surjective. Now because $f_2$ is both injective and surjective, we have that $f_2$ is a bijection. \qed
+
+\section*{27.3}
+\textbf{Give an example of a bijective function $f: \mathbb{Z} \rightarrow \{0, 1\} \times \mathbb{N}$ and include a proof that it is bijective.}\\
+\proof Let $f: \mathbb{Z} \rightarrow \{0, 1\} \times \mathbb{N}$ be a function. Define the partition $Z_1, Z_2, N_1, N_2$ as
+\begin{align*}
+    Z_1 &= \{ z \geq 0 : z \in \mathbb{Z}\}\\
+    Z_2 &= \{ z < 0 : z \in \mathbb{Z}\}\\
+    N_1 &= \{(0,n) : n \in \mathbb{N}\}\\
+    N_1 &= \{(1,n) : n \in \mathbb{N}\}\\
+\end{align*}
+Define the functions
+\begin{align*}
+    &f_1: Z_1 \rightarrow N_1 : f_1(z) = (0, z + 1)\\
+    &f_2: Z_2 \rightarrow N_2 : f_2(z) = (1, -z)\\
+\end{align*}
+We will prove $f_1$ and $f_2$ are bijections. We will start with $f_1$.\\
+Let $z_1, z_2 \in Z_1$ and assume $f_1(z_1) = f_1(z_2)$. We find
+\[
+f_1(z_1) = f_1(z_2) = (0, z_1 + 1) = (0, z_2 + 1) = (0, z_1) = (0, z_2)
+\]
+and thus $z_1 = z_2$ by the definition of a function. Thus $f_1$ is injective. Now let $b \in N_1$ and fix $b = f_1(z)$ for some $z \in Z_1$. To show that $f_1$ is surjective, we must show that for all $b \in N_1$, there exists some $z \in Z_1$ such that $f_1(z) = b$. Let $(0, q) \in Q_1$. Fix $p + 1 = q \in P_1$ so $f(p+1) = (0, q)$. So $f_1$ is surjective.\\
+We will now show that $f_2$ is bijective. First let $z_1, z_2 \in Z_2$ and assume that $f_2(z_1) = f_2(z_2)$. We find
+\[
+f_1(z_1) = f_1(z_2) = (1, -z_1) = (1, -z_2) = (1, z_1) = (1, z_2)
+\]
+Thus $z_1 = z_2$ and we have that $f_2$ is injective. Now let $-p = q \in P_2$ so $f{-p} = (1, q)$. So $f_2$ is surjective.\\
+Because $f_1$ and $f_2$ are surjective, and because $f_1$ and $f_2$ operate on two different partitions of the domain and codomain, we have by the pasting together theorem that $f_1 \cup f_2 = f$. \qed
+\section*{27.4a}
+\textbf{Let $A = \{n \inints : -3 \leq n \leq 3\}$, and let $f: A \rightarrow \mathbb{Z}$ be defined as $f(x) = x^2 + 2x + 2$.}\\
+\[
+f = \{(-3, 5), (-2, 2), (-1, 1), (0, 2), (1, 5), (2, 10), (3, 17)\}
+\]
+\section*{27.4b}
+\[
+\im{f} = \{1, 2, 5, 10, 17\}
+\]
+\section*{27.4c}
+\[
+C = \{-1, 0, 1, 2, 3\}
+\]
+
+\section*{27.5a}
+\textbf{Let $f: A \rightarrow B$ be an injective function, and let $S$ be an arbitrary subset of $A$. Prove that $f|_S: S \rightarrow B$ is injective.}\\
+
+\bigskip
+
+\proof Let $f: A \rightarrow B$ be an injective function, and let $S$ be an arbitrary subset of $A$. Because $A$is injective, we have that any for any $a_1, a_2 \in A$, $f(a_1) = f(a_2)$ implies that $a_1 = a_2$. Assume that $a_1, a_2 \in S$. Because $A$ is injective and by our assumption before, we know that $f|_S(a_1) = f(a_1) = f(a_2) = f|_S(a_2) \in B$. By this equality we have that $f|_S(a_1) = f|_S(a_2)$ which implies $a_1 = a_2$. Thus $f|_S$ is injective. \qed
+
+\section*{27.5b}
+\textbf{Prove that $\hat{f}$ is a bijection.}\\
+
+\bigskip
+
+\proof Let $f: A \rightarrow B$ be an injective function, and let $S$ be an arbitrary subset of $A$. Then we have that $\hat{f}: A \rightarrow \im{A}$ by the rule $\hat{f}(a) = f(a)$ for all $a \in A$. We have by our assumption that $A$ is an injection, meaning that every element$f(a) \in B$ can only be reached by a single distinct $a \in A$. $\im{f} = \{f(a) : a \in A\}$. Let $a$ be an arbitrary element of $A$. Then we have that $f(a) \in B$ and $f(a) \in \im{f}$.
+We will show injection. Let $a_1, a_2 \in A$ and assume that $f(a_1) = f(a_2)$. By our assumptions in the beginning then we have that $a_1 = a_2$. We have that $f(a_1), f(a_2) \in B$ and $f(a_1), f(a_2) \in \im{f}$. Then $\hat{f}(a_1) = \hat{f}(a_2)$ and because we showed that $a_1$ and $a_2$ are equal earlier, we have that $\hat{f}$ is injective.\\
+Now let $b \in B$ and fix $b = f(a)$ for some $a \in A$. Then $b \in \im{f}$ also by definition. Because we have that $\im{f}$ contains all $f(a)$ for all $a \in A$, we have that every element $b \in \im{f}$ is reachable by some element $a \in A$. Thus $\hat{f}$ is surjective. \qed
+
+\section*{27.6a}
+\textbf{Prove that $f:A \rightarrow B$ is surjective if and only if $f^{-1}(\{b\} \neq \emptyset)$ for each $b \in B$}
+
+\bigskip
+
+\proof Let $f: A \rightarrow B$ be a function.\\
+($\Rightarrow$) Assume that $f$ is surjective. Then we have that for all $b \in B$, there exists some $a \in A$ such that $f(a) = b$. We will represent this point as $(a, b)$. Applying the inverse, we have the point $(b,a)$. If we plug our first coordinate of this inverse point into $f^{-1}$ we find
+\[
+f^{-1}(b) = a
+\]
+that this is nonempty.\\
+($\Leftarrow$) Assume that $f^{-1}(\{b\}) \neq \emptyset$ for all $b \in B$. Then we have that for every $b$ in our codomain $B$, there is a corresponding $a$ in our domain $A$. In other words, for all $b \in B$ there exists some $a \in A$ such that $f(a) = b$. Because this is the definition of a surjection, we have that $f$ is surjective. \qed
+
+\section*{27.6b}
+\textbf{Prove that $f:A \rightarrow B$ is injective if and only if $|f^{-1}(\{b\}| \leq 1)$ for each $b \in B$}\\
+
+\bigskip
+
+\proof Let $f:A \rightarrow B$ be a function.\\
+($\Rightarrow$) Assume that $f$ is injective. Then for all $a_1, a_2 \in A$, we have that if $f(a_1) = f(a_2)$, then $a_1 = a_2$. This means that our output $f(a_1)$ is the second coordinate of only one ordered pair in our function. We will represent this point as $(a_1, b)$. If we apply the inversion we have the point $(b, a_1)$. Because $b$ is the second coordinate of only one input $a$ in our original function $f$, it will be the first coordinate of only one pair in $f^{-1}$. Thus $|f^{-1}(b)| \leq 1$.\\
+($\Leftarrow$) Assume that $|f^{-1}(b)| \leq 1$. Then we have that $b \in B$ is the first coordinate of only one point $(b, a)$ with $a$ being some arbitrary element in $A$. We have by an earlier theorem that $(f^{-1})^{-1} = f$. We will apply this transformation to $f^{-1}$. Doing this to the point we made earlier $(b, a)$, we get the point $(a, b)$. By our assumptions we have that $b$ can now only by the second coordinate of one point $(a,b)$. So if we have $a_1, a_2 \in A$ and $f(a_1) = f(a_2) = b$, then we can know that $a_1 = a_2$. This is the definition of injection, therefore we have that $f$ is injective. \qed
+
+\section*{27.7}
+\textbf{Let $f: A \rightarrow B$ be a function and let $X, Y \subseteq A$ and $C, D \subseteq B$.}
+\subsection*{a}
+\textbf{Prove or disprove the following $f(X \cup Y) = f(X) \cup f(Y)$.}\\
+\proof\\
+($\subseteq$) Let $a \in X \cup Y$ and let $f(a) = b$ with $b \in B$. Then we have that $a \in X$ or $a \in Y$.\\
+Case 1: $a \in X$. So then $b \in f(X)$ and $b \in f(X \cup Y)$, so $b \in f(X) \cup f(Y)$.\\
+Case 2: $a \in Y$. Similar to case 1.\\
+($\supseteq$) Let $b \in f(x) \cup f(Y)$. Then $b \in f(X)$ or $b \in f(Y)$.\\
+Case 1: $b \in f(X)$. Then there exists some $a \in X$ such that $f(a) = b$. Then $a \in X \cup Y$ and thus $b \in f(X \cup Y)$.\\
+Case 2: $b \in f(Y)$. Then there exists some $a \in Y$ such that $f(a) = b$. Then $a \in X \cup Y$ and thus $b \in f(X \cup Y)$. \qed
+
+\subsection*{b}
+\textbf{Prove or disprove the following $f(X \cap Y) = f(X) \cap f(Y)$.}\\
+\noindent \dproof Let $A = \mathbb{R}, B = \mathbb{R}$ and set $f(x) = x^2$. Let $X = (0, \inf)$ and $Y = (-\inf, o]$. Then we see that $X \cap Y = \emptyset$. So $f^{-1}(X \cap Y) = \emptyset$. Now the right hand side of the equation does not evaluate like this. $f^{-1}(X) \cap f^{-1}(Y) = (0, \inf) \cap [0, \inf) = (0, \inf)$. Thus we have that these two are not equal. \qed
+
+\subsection*{c}
+\textbf{Prove or disprove the following $f^{-1}(C \cup D) = f^{-1}(C) \cup f^{-1}(D)$.}\\
+\noindent \proof\\
+($\subseteq$) Let $x \in f^{-1}(C \cup D)$. Then we have that $f(x) \in C \cup D$. Then $f(x)$ is an element of $C$ or $D$. Therefore $x$ is an element of either $f^{-1}(C)$ or $f^{-1}(D)$ which implies that $x$ is an element of their union.\\
+($\supseteq$) Let $x$ be an element of $f^{-1}(C) \cup f^{-1}(D)$. Then $x$ is an element of either $f^{-1}(C)$ or $f^{-1}(D)$. Then we have that $f(x)$ is an element of $C$ or $f(x)$ is an element of $D$. Therefore we have that $f(x)$ is an element of $C \cup D$, which means that $x$ is an element of $f^{-1}(C \cup D)$. \qed
+
+\subsection*{d}
+\textbf{Prove or disprove the following $f^{-1}(C \cap D) = f^{-1}(C) \cap f^{-1}(D)$.}\\
+\proof\\
+($\subseteq$) Let $x$ be an element of $f^{-1}(C \cap D)$. Then $f(x)$ is in $C$ and $D$. This means that $x$ is in $f^{-1}(C)$ and $f^{-1}(D)$. Thus, $x$ is an element of $f^{-1}(C) \cap f^{-1}(D)$.\\
+($\supseteq$) Let $x$ be an element of  $f^{-1}(C) \cap f^{-1}(D)$. Then $x$ is in both $f^{-1}(C)$ and $f^{-1}(D)$. Therefore we have that $f(x)$ is in $C$ and that $f(x)$ is in $D$. This means that $f(x)$ is in $C \cap D$. Thus, $x$ is in $f^{-1}(C \cap D)$. \qed
+
+
+
+\end{document}
